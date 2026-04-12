@@ -45,4 +45,3 @@ pip install -e .
 
 ---
 *“The goal of learning is to find the simplest description of the data that is consistent with the observations.”*
-```

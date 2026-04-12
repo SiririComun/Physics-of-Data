@@ -23,3 +23,6 @@ artifacts/*.png
 artifacts/*.html
 
 *.egg-info/
+
+notebooks/*.html
+notebooks/*.pdf
