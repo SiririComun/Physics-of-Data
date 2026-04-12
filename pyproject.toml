@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "physics_of_data"
+version = "0.1.0"
+description = "Statistical Mechanics of Learning - UdeA Computational Physics 2"
+authors =[
+    { name="Your Name", email="your.email@udea.edu.co" }
+]
+dependencies =[
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "scikit-learn",
+    "seaborn",
+    "scipy",
+    "fitter"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include =["src*"]

@@ -1,0 +1,25 @@
+# Ignore experimental data
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Ignore Python bytecode (Thermal noise)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual environments
+venv/
+env/
+.env
+
+# Ignore Lab 1 artifacts
+artifacts/*.json
+artifacts/*.png
+artifacts/*.html
+
+*.egg-info/
