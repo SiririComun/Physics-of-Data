@@ -18,9 +18,9 @@ env/
 .env
 
 # Ignore Lab 1 artifacts
-artifacts/*.json
-artifacts/*.png
-artifacts/*.html
+#artifacts/*.json
+#artifacts/*.png
+#artifacts/*.html
 
 *.egg-info/
 

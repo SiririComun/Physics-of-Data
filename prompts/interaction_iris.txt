@@ -1,0 +1,11 @@
+SISTEMA: Iris Dataset
+FASE: GENERALIZACIÓN
+
+OBSERVACIÓN: 
+El Runner funcionó correctamente sin modificar el código fuente. 
+Se identificaron 150 instancias y 5 variables.
+
+DIFERENCIAS EN EL PROMPT:
+Para el sistema Iris, el Agente no necesitó cambiar las instrucciones de "alto nivel" (ej. "Calcula momentos"), 
+pero la interpretación cambió: en lugar de "masa corporal", ahora hablamos de "longitud de pétalo". 
+La arquitectura de información se mantiene idéntica.
