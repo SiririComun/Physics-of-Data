@@ -18,11 +18,13 @@ env/
 .env
 
 # Ignore Lab 1 artifacts
-#artifacts/*.json
-#artifacts/*.png
-#artifacts/*.html
+artifacts/*.json
+artifacts/*.png
+artifacts/*.html
 
 *.egg-info/
 
 notebooks/*.html
 notebooks/*.pdf
+
+notebooks/Lab01_Sanchez_Classical.ipynb

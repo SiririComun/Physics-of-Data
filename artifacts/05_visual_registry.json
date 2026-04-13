@@ -12,7 +12,7 @@
     ],
     "interaction_plots": [
         "boxplot_bill_length_mm_species.png",
-        "scatter_bill_length_mm_bill_depth_mm.png"
+        "scatter_flipper_length_mm_body_mass_g.png"
     ],
     "correlation_plots": [
         "heatmap_pearson.png"
