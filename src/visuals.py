@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import os
+import numpy as np
 
 def set_style():
     sns.set_theme(style="whitegrid")
@@ -44,8 +45,65 @@ def plot_scatter_by_category(df, x_col, y_col, hue_col):
     save_plot(f"scatter_{x_col}_{y_col}.png")
 
 def plot_correlation_heatmap(df, method="pearson"):
-    plt.figure()
+    """Generates an optimized correlation heatmap for high-dimensional data."""
+    plt.figure(figsize=(20, 16)) 
     corr = df.select_dtypes(include=['number']).corr(method=method)
-    sns.heatmap(corr, annot=True, cmap="coolwarm", center=0)
-    plt.title(f"Correlation Heatmap ({method.capitalize()})")
-    save_plot(f"heatmap_{method}.png")
+    sns.heatmap( corr, annot=True, fmt=".2f", cmap="coolwarm", center=0, annot_kws={"size": 8}, cbar_kws={"shrink": .8})
+
+    # 5. Optimize Labels
+    plt.xticks(rotation=45, ha='right', fontsize=10)
+    plt.yticks(fontsize=10)
+    plt.title(f"Correlation Matrix: {method.capitalize()} Coupling", fontsize=16)
+    
+    return save_plot(f"heatmap_{method}.png")
+
+
+def plot_overlapping_hist_by_label(df, value_col, label_col, filename, bins=30, alpha=0.55):
+    """Creates overlapping histograms for a numeric feature split by categorical labels."""
+    palette = {"B": "orange", "M": "blue"}
+    plt.figure(figsize=(9, 5))
+    for label in ["B", "M"]:
+        subset = df[df[label_col] == label][value_col].dropna()
+        if subset.empty:
+            continue
+        plt.hist(
+            subset,
+            bins=bins,
+            alpha=alpha,
+            color=palette.get(label, "gray"),
+            label=label,
+            edgecolor="white"
+        )
+
+    plt.title(f"Histogram of {value_col} by {label_col}")
+    plt.xlabel(value_col)
+    plt.ylabel("Frequency")
+    plt.legend(title=label_col)
+    return save_plot(filename)
+
+
+def plot_multifeature_violin(df, feature_columns, label_col, filename):
+    """Creates violin plots for multiple numeric features using a long-form melted DataFrame."""
+    long_df = pd.melt(
+        df,
+        id_vars=[label_col],
+        value_vars=feature_columns,
+        var_name="Feature",
+        value_name="Value"
+    )
+
+    plt.figure(figsize=(14, 6))
+    sns.violinplot(
+        data=long_df,
+        x="Feature",
+        y="Value",
+        hue=label_col,
+        palette={"B": "orange", "M": "blue"},
+        cut=0,
+        inner="quartile",
+        linewidth=1
+    )
+    plt.title("Multi-feature Violin Plots by Diagnosis")
+    plt.xticks(rotation=30, ha="right")
+    plt.tight_layout()
+    return save_plot(filename)
