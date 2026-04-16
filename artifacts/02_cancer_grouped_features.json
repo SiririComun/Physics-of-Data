@@ -1,0 +1,78 @@
+{
+  "GroupedFeatureColumns": [
+    "RadiusMean",
+    "TextureMean",
+    "PerimeterMean",
+    "AreaMean",
+    "SmoothnessMean",
+    "CompactnessMean",
+    "ConcavityMean",
+    "ConcavePointsMean",
+    "SymmetryMean",
+    "FractalDimensionMean"
+  ],
+  "GroupedFeatureMeans": {
+    "RadiusMean": -2.4975140097015826e-16,
+    "TextureMean": 0.0,
+    "PerimeterMean": -2.122886908246345e-16,
+    "AreaMean": -1.123881304365712e-16,
+    "SmoothnessMean": -4.120898116007611e-16,
+    "CompactnessMean": 1.2487570048507911e-17,
+    "ConcavityMean": 9.990056038806329e-17,
+    "ConcavePointsMean": 6.243785024253956e-17,
+    "SymmetryMean": 1.7482598067911076e-16,
+    "FractalDimensionMean": -2.4975140097015822e-17
+  },
+  "GroupedFeatureSources": {
+    "RadiusMean": [
+      "Radius1",
+      "Radius2",
+      "Radius3"
+    ],
+    "TextureMean": [
+      "Texture1",
+      "Texture2",
+      "Texture3"
+    ],
+    "PerimeterMean": [
+      "Perimeter1",
+      "Perimeter2",
+      "Perimeter3"
+    ],
+    "AreaMean": [
+      "Area1",
+      "Area2",
+      "Area3"
+    ],
+    "SmoothnessMean": [
+      "Smoothness1",
+      "Smoothness2",
+      "Smoothness3"
+    ],
+    "CompactnessMean": [
+      "Compactness1",
+      "Compactness2",
+      "Compactness3"
+    ],
+    "ConcavityMean": [
+      "Concavity1",
+      "Concavity2",
+      "Concavity3"
+    ],
+    "ConcavePointsMean": [
+      "ConcavePoints1",
+      "ConcavePoints2",
+      "ConcavePoints3"
+    ],
+    "SymmetryMean": [
+      "Symmetry1",
+      "Symmetry2",
+      "Symmetry3"
+    ],
+    "FractalDimensionMean": [
+      "FractalDimension1",
+      "FractalDimension2",
+      "FractalDimension3"
+    ]
+  }
+}

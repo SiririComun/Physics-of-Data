@@ -1,0 +1,42 @@
+{
+  "NullProfile": {
+    "NullCountByColumn": {
+      "Radius1": 0,
+      "Texture1": 0,
+      "Perimeter1": 0,
+      "Area1": 0,
+      "Smoothness1": 0,
+      "Compactness1": 0,
+      "Concavity1": 0,
+      "ConcavePoints1": 0,
+      "Symmetry1": 0,
+      "FractalDimension1": 0,
+      "Radius2": 0,
+      "Texture2": 0,
+      "Perimeter2": 0,
+      "Area2": 0,
+      "Smoothness2": 0,
+      "Compactness2": 0,
+      "Concavity2": 0,
+      "ConcavePoints2": 0,
+      "Symmetry2": 0,
+      "FractalDimension2": 0,
+      "Radius3": 0,
+      "Texture3": 0,
+      "Perimeter3": 0,
+      "Area3": 0,
+      "Smoothness3": 0,
+      "Compactness3": 0,
+      "Concavity3": 0,
+      "ConcavePoints3": 0,
+      "Symmetry3": 0,
+      "FractalDimension3": 0,
+      "Diagnosis": 0
+    },
+    "TotalNullCount": 0
+  },
+  "TargetDistribution": {
+    "B": 357,
+    "M": 212
+  }
+}

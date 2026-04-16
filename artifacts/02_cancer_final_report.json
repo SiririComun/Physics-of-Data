@@ -1,0 +1,40 @@
+{
+  "OutliersRemoved": 22,
+  "OutlierDetail": {
+    "IqrOutliers": 22,
+    "ZscoreOutliers": 6,
+    "CombinedOutliers": 22
+  },
+  "Top5StrongestCorrelations": [
+    {
+      "FeatureA": "Perimeter1",
+      "FeatureB": "Radius1",
+      "Correlation": 0.9973079597579813,
+      "AbsCorrelation": 0.9973079597579813
+    },
+    {
+      "FeatureA": "Radius3",
+      "FeatureB": "Perimeter3",
+      "Correlation": 0.9923018415004285,
+      "AbsCorrelation": 0.9923018415004285
+    },
+    {
+      "FeatureA": "Area1",
+      "FeatureB": "Radius1",
+      "Correlation": 0.9922201556384445,
+      "AbsCorrelation": 0.9922201556384445
+    },
+    {
+      "FeatureA": "Perimeter1",
+      "FeatureB": "Area1",
+      "Correlation": 0.9903299256610648,
+      "AbsCorrelation": 0.9903299256610648
+    },
+    {
+      "FeatureA": "Area3",
+      "FeatureB": "Radius3",
+      "Correlation": 0.9898202515205713,
+      "AbsCorrelation": 0.9898202515205713
+    }
+  ]
+}
