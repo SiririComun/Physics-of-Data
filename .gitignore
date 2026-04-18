@@ -1,30 +1,50 @@
-# Ignore experimental data
+# =============================================================================
+# DATA & OBSERVABLES (Phase Space)
+# =============================================================================
 data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# Ignore Python bytecode (Thermal noise)
+# Exclude local data copies used for notebook flattening
+notebooks/data/
+
+# =============================================================================
+# ARTIFACTS & SIGNALS (Experimental Results)
+# =============================================================================
+# Ignore everything in artifacts by default
+artifacts/*
+
+# Explicitly allow the specific results (The Signal)
+!artifacts/*.json
+!artifacts/*.png
+!artifacts/*.html
+!artifacts/lab02_monthly_hist/
+!artifacts/.gitkeep
+
+# =============================================================================
+# COURSE-SPECIFIC EXCLUSIONS (Exclusive to Course Repo)
+# =============================================================================
+# Ignore unified or class-formatted notebooks
+notebooks/*_Sanchez*
+
+# Ignore exported reports
+notebooks/*.html
+notebooks/*.pdf
+*.pdf
+
+# =============================================================================
+# PYTHON & SYSTEM NOISE (Thermal Fluctuations)
+# =============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Ignore Jupyter notebook checkpoints
-.ipynb_checkpoints/
-
-# Ignore virtual environments
+*.egg-info/
 venv/
 env/
 .env
 
-# Ignore Lab 1 artifacts
-artifacts/*.json
-artifacts/*.png
-artifacts/*.html
-
-*.egg-info/
-
-notebooks/*.html
-notebooks/*.pdf
-
-notebooks/Lab01_Sanchez_Classical.ipynb
+# =============================================================================
+# JUPYTER METADATA
+# =============================================================================
+.ipynb_checkpoints/
