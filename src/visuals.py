@@ -3,6 +3,7 @@ import seaborn as sns
 import pandas as pd
 import os
 import numpy as np
+from scipy.stats import norm
 
 def set_style():
     sns.set_theme(style="whitegrid")
@@ -106,4 +107,76 @@ def plot_multifeature_violin(df, feature_columns, label_col, filename):
     plt.title("Multi-feature Violin Plots by Diagnosis")
     plt.xticks(rotation=30, ha="right")
     plt.tight_layout()
+    return save_plot(filename)
+
+
+def plot_overlapping_pdfs_and_histograms(
+    mu1,
+    sigma1,
+    mu2,
+    sigma2,
+    samples_state_0,
+    samples_state_1,
+    boundary,
+    filename="03_phase_boundary.png",
+):
+    """Plots Gaussian PDFs and sampled histograms, marking the analytical phase boundary."""
+    min_x = min(np.min(samples_state_0), np.min(samples_state_1), mu1 - 4 * sigma1, mu2 - 4 * sigma2)
+    max_x = max(np.max(samples_state_0), np.max(samples_state_1), mu1 + 4 * sigma1, mu2 + 4 * sigma2)
+    x_grid = np.linspace(min_x, max_x, 1200)
+
+    pdf_0 = norm.pdf(x_grid, loc=mu1, scale=sigma1)
+    pdf_1 = norm.pdf(x_grid, loc=mu2, scale=sigma2)
+
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+    axes[0].plot(x_grid, pdf_0, color="#2a9d8f", lw=2, label="State 0 PDF")
+    axes[0].plot(x_grid, pdf_1, color="#e76f51", lw=2, label="State 1 PDF")
+    axes[0].axvline(boundary, color="black", lw=2, ls="--", label=f"x* = {boundary:.3f}")
+    axes[0].set_title("Overlapping Probability Densities")
+    axes[0].set_xlabel("X_1")
+    axes[0].set_ylabel("Density")
+    axes[0].legend()
+
+    axes[1].hist(samples_state_0, bins=25, density=True, alpha=0.58, color="#2a9d8f", label="Label 0")
+    axes[1].hist(samples_state_1, bins=25, density=True, alpha=0.58, color="#e76f51", label="Label 1")
+    axes[1].axvline(boundary, color="black", lw=2, ls="--", label=f"x* = {boundary:.3f}")
+    axes[1].set_title("Overlapping Training Histograms")
+    axes[1].set_xlabel("X_1")
+    axes[1].set_ylabel("Density")
+    axes[1].legend()
+
+    fig.tight_layout()
+    return save_plot(filename)
+
+
+def plot_decision_boundary_2d(model, x_values, y_values, filename, title="Decision Boundary"):
+    """Plots 2D decision regions and observed samples for binary labels."""
+    if x_values.shape[1] != 2:
+        raise ValueError("x_values must have exactly 2 features for 2D boundary plotting.")
+
+    x0_min, x0_max = x_values[:, 0].min() - 1.0, x_values[:, 0].max() + 1.0
+    x1_min, x1_max = x_values[:, 1].min() - 1.0, x_values[:, 1].max() + 1.0
+
+    grid_x0, grid_x1 = np.meshgrid(
+        np.linspace(x0_min, x0_max, 300),
+        np.linspace(x1_min, x1_max, 300),
+    )
+    grid_points = np.c_[grid_x0.ravel(), grid_x1.ravel()]
+    region_pred = model.predict(grid_points).reshape(grid_x0.shape)
+
+    plt.figure(figsize=(8, 6))
+    plt.contourf(grid_x0, grid_x1, region_pred, alpha=0.25, cmap="coolwarm")
+    plt.scatter(
+        x_values[:, 0],
+        x_values[:, 1],
+        c=y_values,
+        cmap="coolwarm",
+        edgecolor="white",
+        alpha=0.9,
+        s=40,
+    )
+    plt.xlabel("X_1")
+    plt.ylabel("X_2")
+    plt.title(title)
     return save_plot(filename)
