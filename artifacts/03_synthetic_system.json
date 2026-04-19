@@ -1,0 +1,53 @@
+{
+    "gaussian_parameters": {
+        "mu1": 5.0,
+        "sigma1": 2.5,
+        "mu2": 7.5,
+        "sigma2": 1.5
+    },
+    "analytical_boundary": {
+        "boundary": 5.892132097593953,
+        "roots": [
+            5.892132097593953,
+            11.92036790240605
+        ],
+        "coefficients": {
+            "a": -0.2844444444444444,
+            "b": 5.066666666666666,
+            "c": -19.97834875246802
+        }
+    },
+    "test_configuration": {
+        "n_samples_per_distribution": 50,
+        "total_test_samples": 100
+    },
+    "model_scores": [
+        {
+            "Model": "LinearRegression",
+            "Metric": "R2 score (and thresholded accuracy)",
+            "TrainScore": 0.25349240026886166,
+            "TestScore": 0.17229235597059656,
+            "GeneralizationGap": 0.0812000442982651,
+            "TrainAccuracyThreshold": 0.73,
+            "TestAccuracyThreshold": 0.7
+        },
+        {
+            "Model": "DecisionTreeClassifier(max_depth=3)",
+            "Metric": "Accuracy",
+            "TrainScore": 0.8,
+            "TestScore": 0.74,
+            "GeneralizationGap": 0.06000000000000005,
+            "TrainAccuracyThreshold": NaN,
+            "TestAccuracyThreshold": NaN
+        },
+        {
+            "Model": "SVC(kernel=linear, C=0.025)",
+            "Metric": "Accuracy",
+            "TrainScore": 0.73,
+            "TestScore": 0.66,
+            "GeneralizationGap": 0.06999999999999995,
+            "TrainAccuracyThreshold": NaN,
+            "TestAccuracyThreshold": NaN
+        }
+    ]
+}

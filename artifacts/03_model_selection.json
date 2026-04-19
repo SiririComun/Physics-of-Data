@@ -1,0 +1,83 @@
+{
+    "gamma_sweep": {
+        "best_gamma": 0.001,
+        "best_validation_score": 0.76875,
+        "best_test_score": 0.675,
+        "gamma_curve_path": "../artifacts/03_gamma_sweep_curve.png"
+    },
+    "manual_learning_curve": [
+        {
+            "TrainSizeFraction": 0.2,
+            "ManualTrainScore": 0.53125,
+            "ManualTestScore": 0.5
+        },
+        {
+            "TrainSizeFraction": 0.36,
+            "ManualTrainScore": 0.5964912280701754,
+            "ManualTestScore": 0.5
+        },
+        {
+            "TrainSizeFraction": 0.52,
+            "ManualTrainScore": 0.8072289156626506,
+            "ManualTestScore": 0.675
+        },
+        {
+            "TrainSizeFraction": 0.6799999999999999,
+            "ManualTrainScore": 0.8055555555555556,
+            "ManualTestScore": 0.65
+        },
+        {
+            "TrainSizeFraction": 0.8400000000000001,
+            "ManualTrainScore": 0.7985074626865671,
+            "ManualTestScore": 0.675
+        },
+        {
+            "TrainSizeFraction": 1.0,
+            "ManualTrainScore": 0.7625,
+            "ManualTestScore": 0.675
+        }
+    ],
+    "sklearn_learning_curve": {
+        "path": "../artifacts/03_learning_curve_svc_sklearn.png",
+        "train_sizes": [
+            25,
+            46,
+            66,
+            87,
+            107,
+            128
+        ],
+        "train_mean": [
+            0.544,
+            0.6086956521739131,
+            0.6363636363636365,
+            0.7287356321839079,
+            0.7626168224299066,
+            0.7671875
+        ],
+        "validation_mean": [
+            0.5,
+            0.63125,
+            0.6,
+            0.70625,
+            0.74375,
+            0.76875
+        ]
+    },
+    "regimes": [
+        {
+            "Regime": "Underfitting",
+            "TrainScore": 0.5875,
+            "TestScore": 0.62,
+            "GeneralizationGap": -0.03249999999999997,
+            "BoundaryPlot": "../artifacts/03_underfitting_boundary.png"
+        },
+        {
+            "Regime": "Overfitting",
+            "TrainScore": 1.0,
+            "TestScore": 0.6086956521739131,
+            "GeneralizationGap": 0.3913043478260869,
+            "BoundaryPlot": "../artifacts/03_overfitting_boundary.png"
+        }
+    ]
+}

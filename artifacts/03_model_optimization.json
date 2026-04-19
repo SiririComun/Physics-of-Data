@@ -1,0 +1,26 @@
+{
+    "grid_model": "DecisionTreeClassifier",
+    "param_grid": {
+        "max_depth": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+        ],
+        "criterion": [
+            "gini",
+            "entropy"
+        ]
+    },
+    "best_params": {
+        "criterion": "entropy",
+        "max_depth": 4
+    },
+    "best_cv_score": 0.7699999999999999,
+    "best_train_score": 0.83,
+    "best_test_score": 0.7,
+    "baseline_test_score_max_depth_3": 0.74,
+    "test_score_improvement": -0.040000000000000036
+}
